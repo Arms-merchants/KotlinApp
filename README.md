@@ -25,7 +25,7 @@ PaletteImageView 哈哈这个是抄的，不过正好作为练手写自定义vie
 
 然后是view直接用就好，这个通过设置图片id
 ```xml
-    <p.diqiugang.foriseinvest.com.kotlinapp.view.PaletteImageView
+    <p.diqiugang.foriseinvest.com.paletteimageview.PaletteImageView
         android:id="@+id/palette_image_view"
         android:layout_width="200dp"
         android:layout_height="200dp"
