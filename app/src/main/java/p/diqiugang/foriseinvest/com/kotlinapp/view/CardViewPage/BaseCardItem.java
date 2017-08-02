@@ -1,7 +1,8 @@
 package p.diqiugang.foriseinvest.com.kotlinapp.view.CardViewPage;
 
-import android.app.Fragment;
+
 import android.content.Context;
+import android.support.v4.app.Fragment;
 
 /**
  * Created by heyueyang on 2017/8/1.
@@ -17,5 +18,10 @@ public class BaseCardItem<T> extends Fragment {
         super.onAttach(context);
         mContext = context;
     }
+
+    public void bindHandle(CardHandler<T> handler) {
+        mHandler = handler;
+    }
+
 
 }
