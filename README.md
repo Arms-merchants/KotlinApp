@@ -1,0 +1,3 @@
+# KotlinApp
+一个测试项目
+一些基本的kotlin代码，不过自定义view的部分还是采用的java来的写的
