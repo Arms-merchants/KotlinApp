@@ -2,6 +2,7 @@ package p.diqiugang.foriseinvest.com.kotlinapp.view.CardViewPage;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import p.diqiugang.foriseinvest.com.kotlinapp.R;
+import p.diqiugang.foriseinvest.com.kotlinapp.view.CardViewPage.adapter.CardPagerAdapter;
 
 /**
  * Created by heyueyang on 2017/8/1.
@@ -51,6 +53,15 @@ public class CardViewPage extends ViewPager {
 
         mIsLoop = typedArray.getBoolean(R.styleable.CardViewPage_card_loop, false);
         typedArray.recycle();
+    }
+
+
+    public <T> void onBind(FragmentManager fm, CardHandler<T> cardHandler, List<T> data) {
+        List<CardItem> cardItems = getCardItems(cardHandler, data, mIsLoop);
+        setPageTransformer(false,new CardViewPageTransformer(mMaxOffset));
+        CardPagerAdapter cardPagerAdapter = new CardPagerAdapter(fm, cardItems, mIsLoop);
+
+        setAdapter(cardPagerAdapter);
     }
 
     /**

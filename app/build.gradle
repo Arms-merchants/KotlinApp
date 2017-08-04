@@ -71,6 +71,10 @@ dependencies {
 
     compile 'com.android.support:palette-v7:25.3.1'
 
+    compile project(':paletteimageview')
+
+/*    compile 'com.crazysunj:cardslideview:1.1.0'
+    compile 'com.dingmouren.paletteimageview:paletteimageview:1.0.6'*/
 /*
     // Appcompat-v7 (only Anko Commons)
     compile "org.jetbrains.anko:anko-appcompat-v7-commons:$anko_version"

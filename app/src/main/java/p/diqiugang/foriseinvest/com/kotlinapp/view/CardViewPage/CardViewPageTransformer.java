@@ -67,7 +67,7 @@ public class CardViewPageTransformer implements ViewPager.PageTransformer {
         if (scaleFactor > 0) {
             page.setScaleX(scaleFactor);
             page.setScaleY(scaleFactor);
-            page.setTranslationX(-mMaxTranslateOffsetX * offsetX);
+            page.setTranslationX(-mMaxTranslateOffsetX * offsetRate);
         }
 
     }

@@ -202,6 +202,7 @@ public class PaletteImageView extends View {
 
     public void setmBitmap(Bitmap bitmap) {
         this.mBitmap = bitmap;
+        requestLayout();
     }
 
     /**
@@ -259,6 +260,9 @@ public class PaletteImageView extends View {
      * @param heightNode 高的模式
      */
     private void zipBitmap(int imgId, Bitmap bitmap, int heightNode) {
+        if (imgId == 0 && bitmap == null) {
+            return;
+        }
         WeakReference<Matrix> matrixWeakReference = new WeakReference<Matrix>(new Matrix());
         if (matrixWeakReference.get() == null) return;
         Matrix matrix = matrixWeakReference.get();
@@ -288,8 +292,8 @@ public class PaletteImageView extends View {
             //通过设置bitmap设置图片
             rawWidth = bitmap.getWidth();
             rawHeight = bitmap.getHeight();
-            float scale = rawWidth / rawHeight;
-            mRealBitmap = Bitmap.createScaledBitmap(bitmap, reqWidth, (int) (rawWidth * scale), true);
+            float scale = rawHeight * 1.0f / rawWidth;
+            mRealBitmap = Bitmap.createScaledBitmap(bitmap, reqWidth, (int) (reqWidth * scale), true);
             intShadow(mRealBitmap);
             return;
         }
@@ -304,7 +308,6 @@ public class PaletteImageView extends View {
             matrix.setScale(scale, scale);
             mRealBitmap = Bitmap.createBitmap(bitmap, 0, 0, small, small, matrix, true);
         }
-
         intShadow(mRealBitmap);
     }
 
@@ -352,6 +355,7 @@ public class PaletteImageView extends View {
      * @return
      */
     private Bitmap creatRoundConerBitmap(Bitmap bitmap, int radius) {
+        if (bitmap == null) return null;
         Bitmap target = Bitmap.createBitmap(getWidth() - 2 * mPadding, getHeight() - 2 * mPadding, Bitmap.Config.ARGB_4444);
         Canvas canvas = new Canvas(target);
         /**

@@ -207,6 +207,8 @@ public class PaletteImageView extends View {
 
     public void setmBitmap(Bitmap bitmap) {
         this.mBitmap = bitmap;
+        mImgId = 0;
+        mHandler.sendEmptyMessage(MSG);
     }
 
     /**

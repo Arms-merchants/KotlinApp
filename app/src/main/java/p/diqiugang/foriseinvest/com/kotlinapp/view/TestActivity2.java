@@ -1,12 +1,17 @@
 package p.diqiugang.foriseinvest.com.kotlinapp.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.SeekBar;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import p.diqiugang.foriseinvest.com.kotlinapp.R;
 
 /**
@@ -25,6 +30,7 @@ public class TestActivity2 extends AppCompatActivity implements SeekBar.OnSeekBa
     SeekBar seekbar3;
     @BindView(R.id.seekbar4)
     SeekBar seekbar4;
+    private ArrayList<String> stringArrayListExtra;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,11 +41,20 @@ public class TestActivity2 extends AppCompatActivity implements SeekBar.OnSeekBa
         seekbar2.setOnSeekBarChangeListener(this);
         seekbar3.setOnSeekBarChangeListener(this);
         seekbar4.setOnSeekBarChangeListener(this);
+        stringArrayListExtra = getIntent().getStringArrayListExtra(CardViewPagerTestActivity.DATA);
     }
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         handleProgress(seekBar, progress);
+    }
+
+
+    @OnClick(R.id.palette_image_view)
+    public void onClick(View view) {
+        Intent intent = new Intent(this, CardViewPagerTestActivity.class);
+        intent.putExtra(CardViewPagerTestActivity.DATA, stringArrayListExtra);
+        startActivity(intent);
     }
 
     private void handleProgress(SeekBar seekBar, int progress) {
@@ -58,6 +73,7 @@ public class TestActivity2 extends AppCompatActivity implements SeekBar.OnSeekBa
                 break;
         }
     }
+
 
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {

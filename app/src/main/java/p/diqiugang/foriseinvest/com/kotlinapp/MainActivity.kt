@@ -16,8 +16,10 @@ import org.greenrobot.eventbus.Subscribe
 import p.diqiugang.foriseinvest.com.kotlinapp.adapter.ImageAdapter
 import p.diqiugang.foriseinvest.com.kotlinapp.network.ApiService
 import p.diqiugang.foriseinvest.com.kotlinapp.network.HttpCallBack
+import p.diqiugang.foriseinvest.com.kotlinapp.view.CardViewPagerTestActivity
 import p.diqiugang.foriseinvest.com.kotlinapp.view.TestActivity2
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity(), MainContact.View {
@@ -71,6 +73,11 @@ class MainActivity : AppCompatActivity(), MainContact.View {
         mAdapter?.setOnItemChildClickListener(object : BaseQuickAdapter.OnItemChildClickListener {
             override fun onItemChildClick(adapter: BaseQuickAdapter<*, *>?, view: View?, position: Int) {
                 intent = Intent(context, TestActivity2::class.java)
+                var dataList: ArrayList<String> = ArrayList<String>()
+                for (item in mAdapter.data) {
+                    dataList.add(item.url)
+                }
+                intent.putExtra(CardViewPagerTestActivity.DATA,dataList)
                 context.startActivity(intent)
             }
 
