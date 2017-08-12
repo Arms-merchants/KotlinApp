@@ -6,17 +6,16 @@
     android:orientation="vertical">
 
 
-    <p.diqiugang.foriseinvest.com.kotlinapp.view.PaletteImageView
+    <p.diqiugang.foriseinvest.com.paletteimageview.PaletteImageView
         android:id="@+id/palette_image_view"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         app:paletteOffsetX="10dp"
         app:paletteOffsetY="10dp"
-        app:palettePadding="40dp"
-        app:paletteSrc="@mipmap/ic_launcher" />
+        app:palettePadding="40dp" />
 
 
     <LinearLayout

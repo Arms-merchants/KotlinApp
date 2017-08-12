@@ -1,11 +1,16 @@
 package p.diqiugang.foriseinvest.com.kotlinapp.view;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.SeekBar;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 
 import java.util.ArrayList;
 
@@ -13,6 +18,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import p.diqiugang.foriseinvest.com.kotlinapp.R;
+import p.diqiugang.foriseinvest.com.paletteimageview.PaletteImageView;
 
 /**
  * Created by heyueyang on 2017/7/28.
@@ -42,6 +48,12 @@ public class TestActivity2 extends AppCompatActivity implements SeekBar.OnSeekBa
         seekbar3.setOnSeekBarChangeListener(this);
         seekbar4.setOnSeekBarChangeListener(this);
         stringArrayListExtra = getIntent().getStringArrayListExtra(CardViewPagerTestActivity.DATA);
+        Glide.with(this).asBitmap().load(stringArrayListExtra.get(0)).into(new SimpleTarget<Bitmap>() {
+            @Override
+            public void onResourceReady(Bitmap resource, Transition<? super Bitmap> transition) {
+                paletteImageView.setmBitmap(resource);
+            }
+        });
     }
 
     @Override

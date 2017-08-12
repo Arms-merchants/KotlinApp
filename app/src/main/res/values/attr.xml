@@ -6,16 +6,6 @@
     <attr name="card_max_offset" format="dimension" />
     <attr name="card_loop" format="boolean" />
 
-    <declare-styleable name="PaletteImageView">
-        <attr name="paletteRadius" format="dimension" />
-        <attr name="paletteSrc" format="reference" />
-        <attr name="palettePadding" format="dimension" />
-        <attr name="paletteOffsetX" format="dimension" />
-        <attr name="paletteOffsetY" format="dimension" />
-        <attr name="palettesShadowRadius" format="dimension" />
-
-    </declare-styleable>
-
 
     <declare-styleable name="CardViewPage">
         <attr name="card_padding" />

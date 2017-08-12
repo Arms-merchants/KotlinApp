@@ -41,6 +41,8 @@ public class CardViewPagerTestActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         ArrayList<String> stringArrayListExtra = getIntent().getStringArrayListExtra(DATA);
         cardViewPage.onBind(getSupportFragmentManager(), new MyCandle(), stringArrayListExtra);
+        cardViewPage.start();
+
     }
 
     class MyCandle implements CardHandler<String> {
